@@ -1,0 +1,118 @@
+// Prisma schema for SecureVote MVP
+// SQLite for rapid prototyping
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Voter model - stores hashed identity and auth credentials
+model Voter {
+  id              String   @id @default(uuid())
+  voterHash       String   @unique // SHA256(nationalId + salt)
+  constituencyId  String
+  registeredAt    DateTime @default(now())
+  hasVoted        Boolean  @default(false)
+  
+  tokens          VotingToken[]
+  authCredentials AuthCredentials?
+  
+  @@index([voterHash])
+}
+
+// Auth credentials - separate table for security
+model AuthCredentials {
+  id              String   @id @default(uuid())
+  voterHash       String   @unique
+  voter           Voter    @relation(fields: [voterHash], references: [voterHash])
+  passwordHash    String   // bcrypt hash
+  otpSecret       String   // For 2FA simulation
+  failedAttempts  Int      @default(0)
+  lockedUntil     DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([voterHash])
+}
+
+// Anonymous voting token - temporary mapping
+model VotingToken {
+  id              String   @id @default(uuid())
+  token           String   @unique // UUID v4
+  voterHash       String
+  voter           Voter    @relation(fields: [voterHash], references: [voterHash])
+  electionId      String
+  constituencyId  String
+  issuedAt        DateTime @default(now())
+  expiresAt       DateTime
+  used            Boolean  @default(false)
+  
+  @@index([token])
+  @@index([voterHash])
+}
+
+// Vote receipt - public verification
+model VoteReceipt {
+  id              String   @id @default(uuid())
+  receiptId       String   @unique // Public identifier
+  voteId          String   // Blockchain vote ID
+  blockNumber     Int
+  transactionHash String
+  timestamp       DateTime @default(now())
+  constituencyId  String
+  zkProofHash     String
+  
+  @@index([receiptId])
+  @@index([voteId])
+}
+
+// Election model - basic structure
+model Election {
+  id                      String   @id @default(uuid())
+  blockchainId            String?  @unique
+  name                    String
+  description             String
+  startTime               DateTime
+  endTime                 DateTime
+  status                  String   // draft, active, ended, finalized
+  allowRevoting           Boolean  @default(false)
+  revotingWindowMinutes   Int      @default(30)
+  createdBy               String
+  createdAt               DateTime @default(now())
+  
+  candidates              Candidate[]
+}
+
+// Candidate model
+model Candidate {
+  id              String   @id @default(uuid())
+  candidateId     String?
+  name            String
+  party           String
+  constituencyId  String
+  manifesto       String?
+  electionId      String
+  election        Election @relation(fields: [electionId], references: [id])
+  
+  @@unique([electionId, candidateId])
+}
+
+// Audit log model
+model AuditLog {
+  id              String   @id @default(uuid())
+  eventType       String
+  action          String
+  voterHash       String?  // Hashed for privacy
+  ipAddress       String?  // Hashed for privacy
+  userAgent       String?
+  metadata        String?  // JSON string
+  severity        String   // info, warning, error, critical
+  timestamp       DateTime @default(now())
+  
+  @@index([eventType])
+  @@index([timestamp])
+}

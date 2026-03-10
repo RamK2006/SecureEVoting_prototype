@@ -1,0 +1,112 @@
+{
+  "network": "localhost",
+  "chainId": 1337,
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "contracts": {
+    "voterRegistry": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "voteLedger": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "electionManager": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+  },
+  "constituencies": [
+    "const-001",
+    "const-002",
+    "const-003",
+    "const-004",
+    "const-005"
+  ],
+  "testVoters": [
+    {
+      "voterHash": "0x096e5cb4d3dbed1459443313c573fc35402dd9089f139149c04798df5c010379",
+      "constituencyId": "const-001",
+      "address": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+    },
+    {
+      "voterHash": "0xe31544691a8a9ec079892ca2033af4c75eb3166fc83ce11d691d4cef0bfd5042",
+      "constituencyId": "const-002",
+      "address": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+    },
+    {
+      "voterHash": "0x700cccec38ee57f041328e12a08104965c4ecbb386ab84ffabf50a5055b0eb50",
+      "constituencyId": "const-003",
+      "address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+    },
+    {
+      "voterHash": "0x3269410c1da953fb25d244d341bdb9a792f557ed6d91e96775d44485194a0328",
+      "constituencyId": "const-004",
+      "address": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+    },
+    {
+      "voterHash": "0x5f72a5f10650c799aacfa8dd4f50864938e5a0a15ae2d0daa7ecd9f3429b428e",
+      "constituencyId": "const-005",
+      "address": "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc"
+    },
+    {
+      "voterHash": "0xa6a417378348d446eeba438160a120bcd94441326e72b9d7cff4d381b519172e",
+      "constituencyId": "const-001",
+      "address": "0x976EA74026E726554dB657fA54763abd0C3a0aa9"
+    },
+    {
+      "voterHash": "0x8c16b34a33f7f6c40a1b28bac19aa9e7fd73d771e10b8187785408e4ce114595",
+      "constituencyId": "const-002",
+      "address": "0x14dC79964da2C08b23698B3D3cc7Ca32193d9955"
+    },
+    {
+      "voterHash": "0xd7355fd97eb220a1a818efb781c1ae4c7c231161acbad4b99ec2f22950ff7f01",
+      "constituencyId": "const-003",
+      "address": "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f"
+    },
+    {
+      "voterHash": "0x009f76edeab7d8ac182b1d770eafda74085065d35a87f74654631ba055931601",
+      "constituencyId": "const-004",
+      "address": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720"
+    },
+    {
+      "voterHash": "0x5c0b48f04c5dd032402f4c8b7f62b1768f81489b4c90e7dfc4050d5223275363",
+      "constituencyId": "const-005",
+      "address": "0xBcd4042DE499D14e55001CcbB24a551F3b954096"
+    }
+  ],
+  "testElection": {
+    "electionId": "0xcc8bd6361a25351f440b16b4e014dc8cf0b51f598011bdb526d09cc09f70b9e3",
+    "name": "Test General Election 2024",
+    "candidates": [
+      {
+        "id": "candidate-001",
+        "name": "Alice Johnson",
+        "party": "Progressive Party",
+        "constituency": "const-001"
+      },
+      {
+        "id": "candidate-002",
+        "name": "Bob Smith",
+        "party": "Conservative Alliance",
+        "constituency": "const-001"
+      },
+      {
+        "id": "candidate-003",
+        "name": "Carol Davis",
+        "party": "Independent",
+        "constituency": "const-002"
+      },
+      {
+        "id": "candidate-004",
+        "name": "David Lee",
+        "party": "Green Party",
+        "constituency": "const-002"
+      },
+      {
+        "id": "candidate-005",
+        "name": "Emma Wilson",
+        "party": "Labor Union",
+        "constituency": "const-003"
+      },
+      {
+        "id": "candidate-006",
+        "name": "Frank Miller",
+        "party": "Progressive Party",
+        "constituency": "const-003"
+      }
+    ]
+  },
+  "timestamp": "2026-03-10T14:17:06.149Z"
+}

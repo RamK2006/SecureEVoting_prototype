@@ -1,0 +1,278 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "voteId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "anonymousToken",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "constituencyId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "VoteSubmitted",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "admin",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllVoteIds",
+    "outputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "voteIds",
+        "type": "bytes32[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "constituencyId",
+        "type": "string"
+      }
+    ],
+    "name": "getConstituencyVoteCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "count",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "constituencyId",
+        "type": "string"
+      }
+    ],
+    "name": "getConstituencyVoteIds",
+    "outputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "voteIds",
+        "type": "bytes32[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalVotes",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "count",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "voteId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getVote",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "encryptedVote",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "constituencyId",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "voteId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getVoteDetails",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "anonymousToken",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedVote",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "zkProof",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "constituencyId",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "anonymousToken",
+        "type": "bytes32"
+      }
+    ],
+    "name": "isTokenUsed",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "used",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "anonymousToken",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedVote",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "zkProof",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "constituencyId",
+        "type": "string"
+      }
+    ],
+    "name": "submitVote",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "voteId",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalVotes",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newAdmin",
+        "type": "address"
+      }
+    ],
+    "name": "transferAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
