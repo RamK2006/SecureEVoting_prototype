@@ -74,7 +74,7 @@ This separation ensures that even with full blockchain access, votes cannot be l
 
 1. **Clone and Install**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/RamK2006/SecureEVoting_prototype.git
    cd securevote-blockchain-evoting
    npm install
    ```
